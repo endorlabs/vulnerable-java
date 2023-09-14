@@ -1,0 +1,917 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "org.apache.logging.log4j:log4j-core@2.3 has a low severity vulnerability identified by GHSA-vwqq-5vrc-xw9h: Improper validation of certificate with host mismatch in Apache Log4j SMTP appender. No vulnerable function is known to be reachable. This vulnerability was fixed in version 2.3.2. \norg.apache.logging.log4j:log4j-core@2.3 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_low_severity_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unable to locate or access the source code for dependency org.apache.commons:commons-text@1.9. \norg.apache.commons:commons-text@1.9 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "missing_source_code"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Unable to locate or access the source code for dependency javax.servlet:javax.servlet-api@3.1.0. \njavax.servlet:javax.servlet-api@3.1.0 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "missing_source_code"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Dependency org.semver:api@0.9.33 has a low activity score of 3.54 (<3.90). org.semver:api@0.9.33 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_low_activity_score"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Dependency org.webjars.bowergithub.webcomponents:shadycss@1.9.1 has a low activity score of 3.54 (<3.90). org.webjars.bowergithub.webcomponents:shadycss@1.9.1 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_low_activity_score"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Package com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT has a low code quality score of 2.50 (<3.00)."
+          },
+          "ruleId": "dependency_with_low_quality_score"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "com.google.guava:guava@13.0.1 has a low severity vulnerability identified by GHSA-5mg8-w23w-74h3: Information Disclosure in Guava. No vulnerable function is known to be reachable. This vulnerability was fixed in version 30.0-android. \ncom.google.guava:guava@13.0.1 is a transitive dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT via external direct dependency org.jboss.weld:weld-core@1.1.33.Final."
+          },
+          "ruleId": "dependency_with_low_severity_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "License risk for dependency org.jboss.shrinkwrap:shrinkwrap-api@1.2.6: Repository does not appear to have a valid license. \norg.jboss.shrinkwrap:shrinkwrap-api@1.2.6 is a transitive dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT via external direct dependency org.jboss.shrinkwrap:shrinkwrap-impl-base@1.2.6."
+          },
+          "ruleId": "bad_license"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT directly depends on com.nqzero:permit-reflect@0.3, but it is not reachable.\nThis indicates that the dependency is unused and should be removed."
+          },
+          "ruleId": "unreachable_direct_dependency"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "org.apache.logging.log4j:log4j-core@2.3 has a medium severity vulnerability identified by GHSA-8489-44mv-ggj8: Improper Input Validation and Injection in Apache Log4j2. No vulnerable function is known to be reachable. This vulnerability was fixed in version 2.3.2. \norg.apache.logging.log4j:log4j-core@2.3 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_medium_severity_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "License risk for dependency com.google.guava:guava@13.0.1: Repository does not appear to have a valid license. \ncom.google.guava:guava@13.0.1 is a transitive dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT via external direct dependency org.jboss.weld:weld-core@1.1.33.Final."
+          },
+          "ruleId": "bad_license"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "License risk for dependency com.mchange:c3p0@0.9.5.2: Repository does not appear to have a valid license. \ncom.mchange:c3p0@0.9.5.2 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "bad_license"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "mysql:mysql-connector-java@5.1.42 has a medium severity vulnerability identified by GHSA-jcq3-cprp-m333: Privilege escalation in mysql-connector-jav. No vulnerable function is known to be reachable. This vulnerability was fixed in version 8.0.16. \nmysql:mysql-connector-java@5.1.42 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_medium_severity_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "com.google.errorprone:error_prone_annotations@v2.7.1 is 23 months old and 14 releases behind the latest release v2.18.0. \ncom.google.errorprone:error_prone_annotations@2.7.1 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "outdated_release"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "License risk for dependency com.google.errorprone:error_prone_annotations@2.7.1: Repository does not appear to have a valid license. \ncom.google.errorprone:error_prone_annotations@2.7.1 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "bad_license"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "net.bytebuddy:byte-buddy-agent@byte-buddy-1.9.10 is 50 months old and 73 releases behind the latest release byte-buddy-1.12.20. \nnet.bytebuddy:byte-buddy-agent@1.9.10 is a transitive dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT via external direct dependency org.mockito:mockito-core@2.28.2."
+          },
+          "ruleId": "outdated_release"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "org.mockito:mockito-core@v2.28.2 is 46 months old and 173 releases behind the latest release v5.0.0. \norg.mockito:mockito-core@2.28.2 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "outdated_release"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "com.google.guava:guava@13.0.1 has a medium severity vulnerability identified by GHSA-mvr2-9pj6-7w5j: Denial of Service in Google Guava. No vulnerable function is known to be reachable. This vulnerability was fixed in version 24.1.1-android. \ncom.google.guava:guava@13.0.1 is a transitive dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT via external direct dependency org.jboss.weld:weld-core@1.1.33.Final."
+          },
+          "ruleId": "dependency_with_medium_severity_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT directly depends on org.webjars.bowergithub.webcomponents:shadycss@1.9.1, but it is not reachable.\nThis indicates that the dependency is unused and should be removed."
+          },
+          "ruleId": "unreachable_direct_dependency"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT directly depends on org.jboss.shrinkwrap.descriptors:shrinkwrap-descriptors-api-base@2.0.0, but it is not reachable.\nThis indicates that the dependency is unused and should be removed."
+          },
+          "ruleId": "unreachable_direct_dependency"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT directly depends on com.google.errorprone:error_prone_annotations@2.7.1, but it is not reachable.\nThis indicates that the dependency is unused and should be removed."
+          },
+          "ruleId": "unreachable_direct_dependency"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT directly depends on org.semver:api@0.9.33, but it is not reachable.\nThis indicates that the dependency is unused and should be removed."
+          },
+          "ruleId": "unreachable_direct_dependency"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "net.bytebuddy:byte-buddy@byte-buddy-1.9.10 is 50 months old and 73 releases behind the latest release byte-buddy-1.12.20. \nnet.bytebuddy:byte-buddy@1.9.10 is a transitive dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT via external direct dependency org.mockito:mockito-core@2.28.2."
+          },
+          "ruleId": "outdated_release"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT directly depends on org.jboss.arquillian.config:arquillian-config-spi@1.7.0.Alpha12, but it is not reachable.\nThis indicates that the dependency is unused and should be removed."
+          },
+          "ruleId": "unreachable_direct_dependency"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT directly depends on org.webjars.bowergithub.webcomponents:webcomponentsjs@2.0.0-beta.3, but it is not reachable.\nThis indicates that the dependency is unused and should be removed."
+          },
+          "ruleId": "unreachable_direct_dependency"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "License risk for dependency ch.qos.cal10n:cal10n-api@0.7.7: Repository does not appear to have a valid license. \nch.qos.cal10n:cal10n-api@0.7.7 is a transitive dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT via external direct dependency org.jboss.weld:weld-core@1.1.33.Final."
+          },
+          "ruleId": "bad_license"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "org.apache.logging.log4j:log4j-core@2.3 has a medium severity vulnerability identified by GHSA-p6xc-xr62-6r2g: Apache Log4j2 vulnerable to Improper Input Validation and Uncontrolled Recursion. No vulnerable function is known to be reachable. This vulnerability was fixed in version 2.3.1. \norg.apache.logging.log4j:log4j-core@2.3 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_medium_severity_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Repository semantic-versioning is archived for dependency org.semver:api@0.9.33. \norg.semver:api@0.9.33 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "archived_source_code_repo"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "License risk for dependency org.jboss.shrinkwrap:shrinkwrap-impl-base@1.2.6: Repository does not appear to have a valid license. \norg.jboss.shrinkwrap:shrinkwrap-impl-base@1.2.6 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "bad_license"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "License risk for dependency org.semver:api@0.9.33: Repository does not appear to have a valid license. \norg.semver:api@0.9.33 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "bad_license"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "License risk for dependency org.webjars.bowergithub.webcomponents:webcomponentsjs@2.0.0-beta.3: Repository does not appear to have a valid license. \norg.webjars.bowergithub.webcomponents:webcomponentsjs@2.0.0-beta.3 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "bad_license"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Repository webcomponentsjs is archived for dependency org.webjars.bowergithub.webcomponents:webcomponentsjs@2.0.0-beta.3. \norg.webjars.bowergithub.webcomponents:webcomponentsjs@2.0.0-beta.3 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "archived_source_code_repo"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "License risk for dependency org.jboss.shrinkwrap:shrinkwrap-spi@1.2.6: Repository does not appear to have a valid license. \norg.jboss.shrinkwrap:shrinkwrap-spi@1.2.6 is a transitive dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT via external direct dependency org.jboss.shrinkwrap:shrinkwrap-impl-base@1.2.6."
+          },
+          "ruleId": "bad_license"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "License risk for dependency org.mockito:mockito-core@2.28.2: Repository does not appear to have a valid license. \norg.mockito:mockito-core@2.28.2 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "bad_license"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "License risk for dependency org.webjars.bowergithub.webcomponents:shadycss@1.9.1: Repository does not appear to have a valid license. \norg.webjars.bowergithub.webcomponents:shadycss@1.9.1 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "bad_license"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "mysql:mysql-connector-java@5.1.42 has a medium severity vulnerability identified by GHSA-w6f2-8wx4-47r5: Incorrect Authorization in MySQL Connector Java. No vulnerable function is known to be reachable. There is no known fix for this vulnerability at this time. \nmysql:mysql-connector-java@5.1.42 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_medium_severity_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Repository shadycss is archived for dependency org.webjars.bowergithub.webcomponents:shadycss@1.9.1. \norg.webjars.bowergithub.webcomponents:shadycss@1.9.1 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "archived_source_code_repo"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "com.mchange:c3p0@0.9.5.2 has a high severity vulnerability identified by GHSA-84p2-vf58-xhxv: Billion laughs attack in c3p0. No vulnerable function is known to be reachable. This vulnerability was fixed in version 0.9.5.4. \ncom.mchange:c3p0@0.9.5.2 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_high_severity_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "org.apache.commons:commons-text@1.9 has a critical vulnerability identified by GHSA-599f-7c49-w659: Arbitrary code execution in Apache Commons Text. A vulnerable function is potentially reachable. This vulnerability was fixed in version 1.10.0. \norg.apache.commons:commons-text@1.9 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_critical_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "com.mchange:c3p0@0.9.5.2 has a critical vulnerability identified by GHSA-q485-j897-qc27: XML External Entity Reference in mchange:c3p0. No vulnerable function is known to be reachable. There is no known fix for this vulnerability at this time. \ncom.mchange:c3p0@0.9.5.2 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_critical_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "org.slf4j:slf4j-ext@1.7.2 has a critical vulnerability identified by GHSA-w77p-8cfg-2x43: Improper Access Control in SLF4J. No vulnerable function is known to be reachable. This vulnerability was fixed in version 1.8.0-beta4. \norg.slf4j:slf4j-ext@1.7.2 is a transitive dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT via external direct dependency org.jboss.weld:weld-core@1.1.33.Final."
+          },
+          "ruleId": "dependency_with_critical_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "org.apache.logging.log4j:log4j-core@2.3 has a critical vulnerability identified by GHSA-2qrg-x229-3v8q: Deserialization of Untrusted Data in Log4j. No vulnerable function is known to be reachable. This vulnerability was fixed in version 2.8.2. \norg.apache.logging.log4j:log4j-core@2.3 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_critical_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "org.apache.logging.log4j:log4j-core@2.3 has a critical vulnerability identified by GHSA-7rjr-3q55-vv33: Incomplete fix for Apache Log4j vulnerability. No vulnerable function is known to be reachable. This vulnerability was fixed in version 2.16.0. \norg.apache.logging.log4j:log4j-core@2.3 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_critical_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "org.apache.logging.log4j:log4j-core@2.3 has a critical vulnerability identified by GHSA-fxph-q3j8-mv87: Deserialization of Untrusted Data in Log4j. No vulnerable function is known to be reachable. This vulnerability was fixed in version 2.8.2. \norg.apache.logging.log4j:log4j-core@2.3 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_critical_vulnerabilities"
+        },
+        {
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pom.xml"
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "org.apache.logging.log4j:log4j-core@2.3 has a critical vulnerability identified by GHSA-jfh8-c2jp-5v3q: Remote code injection in Log4j. No vulnerable function is known to be reachable. This vulnerability was fixed in version 2.15.0. \norg.apache.logging.log4j:log4j-core@2.3 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+          },
+          "ruleId": "dependency_with_critical_vulnerabilities"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "endorctl",
+          "rules": [
+            {
+              "fullDescription": {
+                "text": "Unable to locate or access the source code for dependency org.apache.commons:commons-text@1.9. \norg.apache.commons:commons-text@1.9 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+              },
+              "help": {
+                "text": "Review details to decide what to do next."
+              },
+              "id": "missing_source_code",
+              "name": "missing_source_code",
+              "properties": {
+                "tags": [
+                  "FINDING_TAGS_DIRECT",
+                  "FINDING_TAGS_REACHABLE_DEPENDENCY",
+                  "FINDING_TAGS_NORMAL"
+                ]
+              },
+              "shortDescription": {
+                "text": "Missing Source Code Repository for Dependency org.apache.commons:commons-text@1.9"
+              }
+            },
+            {
+              "fullDescription": {
+                "text": "com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT directly depends on com.nqzero:permit-reflect@0.3, but it is not reachable.\nThis indicates that the dependency is unused and should be removed."
+              },
+              "help": {
+                "text": "Remove com.nqzero:permit-reflect dependency from com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+              },
+              "id": "unreachable_direct_dependency",
+              "name": "unreachable_direct_dependency",
+              "properties": {
+                "tags": [
+                  "FINDING_TAGS_DIRECT",
+                  "FINDING_TAGS_UNREACHABLE_DEPENDENCY",
+                  "FINDING_TAGS_NORMAL"
+                ]
+              },
+              "shortDescription": {
+                "text": "Unused Direct Dependency com.nqzero:permit-reflect@0.3"
+              }
+            },
+            {
+              "fullDescription": {
+                "text": "com.mchange:c3p0@0.9.5.2 has a high severity vulnerability identified by GHSA-84p2-vf58-xhxv: Billion laughs attack in c3p0. No vulnerable function is known to be reachable. This vulnerability was fixed in version 0.9.5.4. \ncom.mchange:c3p0@0.9.5.2 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+              },
+              "help": {
+                "text": "Update com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT to use com.mchange:c3p0 version 0.9.5.4 (current: 0.9.5.2, latest: 0.9.5.5)."
+              },
+              "id": "dependency_with_high_severity_vulnerabilities",
+              "name": "dependency_with_high_severity_vulnerabilities",
+              "properties": {
+                "tags": [
+                  "FINDING_TAGS_DIRECT",
+                  "FINDING_TAGS_UNREACHABLE_FUNCTION",
+                  "FINDING_TAGS_REACHABLE_DEPENDENCY",
+                  "FINDING_TAGS_NORMAL",
+                  "FINDING_TAGS_FIX_AVAILABLE"
+                ]
+              },
+              "shortDescription": {
+                "text": "Dependency com.mchange:c3p0@0.9.5.2 With High Severity Vulnerability Billion laughs attack in c3p0"
+              }
+            },
+            {
+              "fullDescription": {
+                "text": "org.apache.commons:commons-text@1.9 has a critical vulnerability identified by GHSA-599f-7c49-w659: Arbitrary code execution in Apache Commons Text. A vulnerable function is potentially reachable. This vulnerability was fixed in version 1.10.0. \norg.apache.commons:commons-text@1.9 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+              },
+              "help": {
+                "text": "Update com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT to use org.apache.commons:commons-text version 1.10.0 (current: 1.9, latest: 1.10.0)."
+              },
+              "id": "dependency_with_critical_vulnerabilities",
+              "name": "dependency_with_critical_vulnerabilities",
+              "properties": {
+                "tags": [
+                  "FINDING_TAGS_DIRECT",
+                  "FINDING_TAGS_REACHABLE_FUNCTION",
+                  "FINDING_TAGS_REACHABLE_DEPENDENCY",
+                  "FINDING_TAGS_NORMAL",
+                  "FINDING_TAGS_FIX_AVAILABLE"
+                ]
+              },
+              "shortDescription": {
+                "text": "Dependency org.apache.commons:commons-text@1.9 With Critical Vulnerability Arbitrary code execution in Apache Commons Text"
+              }
+            },
+            {
+              "fullDescription": {
+                "text": "org.apache.logging.log4j:log4j-core@2.3 has a low severity vulnerability identified by GHSA-vwqq-5vrc-xw9h: Improper validation of certificate with host mismatch in Apache Log4j SMTP appender. No vulnerable function is known to be reachable. This vulnerability was fixed in version 2.3.2. \norg.apache.logging.log4j:log4j-core@2.3 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+              },
+              "help": {
+                "text": "Update com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT to use org.apache.logging.log4j:log4j-core version 2.3.2 (current: 2.3, latest: 2.20.0)."
+              },
+              "id": "dependency_with_low_severity_vulnerabilities",
+              "name": "dependency_with_low_severity_vulnerabilities",
+              "properties": {
+                "tags": [
+                  "FINDING_TAGS_DIRECT",
+                  "FINDING_TAGS_TEST",
+                  "FINDING_TAGS_FIX_AVAILABLE"
+                ]
+              },
+              "shortDescription": {
+                "text": "Dependency org.apache.logging.log4j:log4j-core@2.3 With Low Severity Vulnerability Improper validation of certificate with host mismatch in Apache Log4j SMTP appender"
+              }
+            },
+            {
+              "fullDescription": {
+                "text": "Package com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT has a low code quality score of 2.50 (<3.00)."
+              },
+              "help": {
+                "text": "No remediation guidance available."
+              },
+              "id": "dependency_with_low_quality_score",
+              "name": "dependency_with_low_quality_score",
+              "properties": {
+                "tags": [
+                  "FINDING_TAGS_SELF",
+                  "FINDING_TAGS_PROJECT_INTERNAL",
+                  "FINDING_TAGS_NAMESPACE_INTERNAL"
+                ]
+              },
+              "shortDescription": {
+                "text": "Package com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT With Low Quality Score"
+              }
+            },
+            {
+              "fullDescription": {
+                "text": "License risk for dependency org.jboss.shrinkwrap:shrinkwrap-api@1.2.6: Repository does not appear to have a valid license. \norg.jboss.shrinkwrap:shrinkwrap-api@1.2.6 is a transitive dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT via external direct dependency org.jboss.shrinkwrap:shrinkwrap-impl-base@1.2.6."
+              },
+              "help": {
+                "text": "Review details to decide what to do next."
+              },
+              "id": "bad_license",
+              "name": "bad_license",
+              "properties": {
+                "tags": [
+                  "FINDING_TAGS_TRANSITIVE",
+                  "FINDING_TAGS_REACHABLE_DEPENDENCY",
+                  "FINDING_TAGS_NORMAL"
+                ]
+              },
+              "shortDescription": {
+                "text": "License Risk in Dependency org.jboss.shrinkwrap:shrinkwrap-api@1.2.6"
+              }
+            },
+            {
+              "fullDescription": {
+                "text": "org.apache.logging.log4j:log4j-core@2.3 has a medium severity vulnerability identified by GHSA-8489-44mv-ggj8: Improper Input Validation and Injection in Apache Log4j2. No vulnerable function is known to be reachable. This vulnerability was fixed in version 2.3.2. \norg.apache.logging.log4j:log4j-core@2.3 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+              },
+              "help": {
+                "text": "Update com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT to use org.apache.logging.log4j:log4j-core version 2.3.2 (current: 2.3, latest: 2.20.0)."
+              },
+              "id": "dependency_with_medium_severity_vulnerabilities",
+              "name": "dependency_with_medium_severity_vulnerabilities",
+              "properties": {
+                "tags": [
+                  "FINDING_TAGS_DIRECT",
+                  "FINDING_TAGS_TEST",
+                  "FINDING_TAGS_FIX_AVAILABLE"
+                ]
+              },
+              "shortDescription": {
+                "text": "Dependency org.apache.logging.log4j:log4j-core@2.3 With Medium Severity Vulnerability Improper Input Validation and Injection in Apache Log4j2"
+              }
+            },
+            {
+              "fullDescription": {
+                "text": "com.google.errorprone:error_prone_annotations@v2.7.1 is 23 months old and 14 releases behind the latest release v2.18.0. \ncom.google.errorprone:error_prone_annotations@2.7.1 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+              },
+              "help": {
+                "text": "Update com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT to use com.google.errorprone:error_prone_annotations version 2.18.0, 2.17.0, 2.16, or 2.15.0 (current: 2.7.1, latest: 2.18.0)."
+              },
+              "id": "outdated_release",
+              "name": "outdated_release",
+              "properties": {
+                "tags": [
+                  "FINDING_TAGS_DIRECT",
+                  "FINDING_TAGS_UNREACHABLE_DEPENDENCY",
+                  "FINDING_TAGS_NORMAL"
+                ]
+              },
+              "shortDescription": {
+                "text": "Outdated Dependency com.google.errorprone:error_prone_annotations@2.7.1"
+              }
+            },
+            {
+              "fullDescription": {
+                "text": "Repository semantic-versioning is archived for dependency org.semver:api@0.9.33. \norg.semver:api@0.9.33 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+              },
+              "help": {
+                "text": "Assess the feasibility of migrating to a maintained software package or self-maintenance with the understanding that this software will no longer make updates available."
+              },
+              "id": "archived_source_code_repo",
+              "name": "archived_source_code_repo",
+              "properties": {
+                "tags": [
+                  "FINDING_TAGS_DIRECT",
+                  "FINDING_TAGS_UNREACHABLE_DEPENDENCY",
+                  "FINDING_TAGS_NORMAL"
+                ]
+              },
+              "shortDescription": {
+                "text": "Unmaintained Dependency org.semver:api@0.9.33"
+              }
+            },
+            {
+              "fullDescription": {
+                "text": "Dependency org.semver:api@0.9.33 has a low activity score of 3.54 (<3.90). org.semver:api@0.9.33 is a direct dependency of com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT."
+              },
+              "help": {
+                "text": "Check if the package is unmaintained by reviewing the score factors and decide whether to switch packages."
+              },
+              "id": "dependency_with_low_activity_score",
+              "name": "dependency_with_low_activity_score",
+              "properties": {
+                "tags": [
+                  "FINDING_TAGS_DIRECT",
+                  "FINDING_TAGS_UNREACHABLE_DEPENDENCY",
+                  "FINDING_TAGS_NORMAL"
+                ]
+              },
+              "shortDescription": {
+                "text": "Dependency org.semver:api@0.9.33 With Low Activity Score"
+              }
+            }
+          ],
+          "semanticVersion": "v1.2.3"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}
