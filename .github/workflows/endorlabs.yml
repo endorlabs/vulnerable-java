@@ -1,5 +1,4 @@
 name: Endor Labs Scan
-
 on:
   push:
     branches: [ main ]
@@ -10,31 +9,47 @@ on:
         tenant_name:
           description: "Enter your Endor Labs tenant name:"
           required: true
-          type: string
+        api: 
+          description: "Endor Labs API endpoint"
+          required: false 
+          default: "https://api.endorlabs.com"
 
 jobs:
   scan:
     permissions:
-      security-events: write
       contents: read
       id-token: write
+    
     runs-on: ubuntu-latest
+    
     steps:
+    
+    - name: setup namespace 
+      run: | 
+        NAMESPACE=$(jq -r '.inputs.tenant_name' $GITHUB_EVENT_PATH)
+        echo "::add-mask::$NAMESPACE" 
+        echo NAMESPACE=$NAMESPACE >> $GITHUB_ENV
+    
     - name: Checkout Repository
       uses: actions/checkout@v3
+    
     - name: Setup Java
       uses: actions/setup-java@v3
       with:
         distribution: 'microsoft'
         java-version: '17'
+        cache: 'maven'
+    
     - name: Compile Package
       run: mvn clean install
+    
     - name: Run endorctl
-      uses: endorlabs/github-action@b51bd06466b545f01a6ac788e3e1147695d3936c
+      uses: endorlabs/github-action@v1.1.2
       with:
-        namespace: "${{ github.event.inputs.tenant_name }}"
-        sarif_file: findings.sarif
-    - name: Upload SARIF to github
-      uses: github/codeql-action/upload-sarif@9885f86fab4879632b7e44514f19148225dfbdcd
-      with:
-        sarif_file: findings.sarif
+        namespace: ${{ github.event.inputs.tenant_name }}
+        enable_github_action_token: true
+        scan_summary_output_type: "table"
+        additional_args: "--as-default-branch"
+        pr: false
+        
+    
