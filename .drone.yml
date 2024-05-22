@@ -31,4 +31,4 @@ steps:
     echo "$(curl -s https://api.endorlabs.com/sha/latest/endorctl_linux_amd64)  endorctl" | sha256sum -c
     chmod +x ./endorctl
     ./endorctl --version
-    ./endorctl scan
+    ./endorctl scan --as-default-branch --detached-ref-name=${DRONE_BRANCH}
