@@ -1,19 +1,22 @@
 name: Endor Labs Scan Test
 on:
-  workflow_dispatch:
-    inputs:
-      api:
-        description: "Enter the target Endor Labs API"
-        required: true
-        type: choice
-        default: https://api.endorlabs.com
-        options:
-        - https://api.staging.endorlabs.com
-        - https://api.endorlabs.com
-      tenant_name:
-        description: "Enter your Endor Labs namespace?"
-        required: true
-        type: string
+  pull_request:
+    branches:
+      - main
+  # workflow_dispatch:
+  #   inputs:
+  #     api:
+  #       description: "Enter the target Endor Labs API"
+  #       required: true
+  #       type: choice
+  #       default: https://api.endorlabs.com
+  #       options:
+  #       - https://api.staging.endorlabs.com
+  #       - https://api.endorlabs.com
+  #     tenant_name:
+  #       description: "Enter your Endor Labs namespace?"
+  #       required: true
+  #       type: string
 jobs:
   scan-repo:
     runs-on: ubuntu-latest
