@@ -13,7 +13,7 @@ jobs:
         # uses: endorlabs/github-action@1.1.4
         uses: endorlabs/github-action@v1.1.4
         with:
-          namespace: "example"
+          namespace: "nate-learn"
           enable_github_action_token: true
 
       - name: Use Endorctl
