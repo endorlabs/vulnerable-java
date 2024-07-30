@@ -10,7 +10,7 @@ jobs:
       contents: read
     steps:
       - name: Setup with Endor Labs
-        uses: endorlabs/github-action/setup@1.1.4
+        uses: endorlabs/github-action@1.1.4
         with:
           namespace: "example"
           enable_github_action_token: true
