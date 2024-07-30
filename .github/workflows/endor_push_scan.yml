@@ -1,4 +1,4 @@
-name: Endor Labs Dependency and Secrets Scan Monitoring
+name: Endor Labs PR Check for Secrets and Vulns
 on:
   push:
     branches: [ new_main ]
