@@ -1,4 +1,4 @@
-name: Endor Labs PR Check for Secrets and Vulns
+name: Endor Labs Main Branch Check for Secrets and Vulns
 on:
   push:
     branches: [ new_main ]
