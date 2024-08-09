@@ -1,0 +1,11 @@
+steps:
+  - name: Check Maven Version
+    entrypoint: mvn
+    args: ['--version']
+  - name: Build Project With Maven
+    entrypoint: mvn
+    args: ['clean', 'install']
+  - name: Install Node JS 20.10
+    script: |
+      #!/usr/bin/env bash
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
