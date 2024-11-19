@@ -1,0 +1,45 @@
+
+name: Run UIA manually
+
+on:
+  workflow_dispatch:
+    inputs:
+      api:
+        description: "Enter the target Endor Labs API"
+        required: true
+        type: choice
+        default: https://api.endorlabs.com
+        options:
+        - https://api.staging.endorlabs.com
+        - https://api.endorlabs.com
+      tenant_name:
+        description: "Enter your Endor Labs namespace?"
+        required: true
+        type: string
+jobs:
+  release:
+    name: Run UIA Manually
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    - name: Install jq
+      run: sudo apt-get update && sudo apt-get install -y jq
+    - name: Run UIA Manually
+      run: |
+        set -euo pipefail
+        curl https://api.endorlabs.com/download/endorlabs/v1.6.575/binaries/endorctl_v1.6.575_linux_amd64 -o endorctl
+        echo "6394deb077645e124ba743e30558a12493551496e967eaef932703b8594e312d endorctl" | sha256sum --check
+        chmod +x ./endorctl
+        PROJECT_UUIDS=$(./endorctl api list -r Project --enable-github-action-token=true -n "${{ github.event.inputs.tenant_name }}" --api="${{ github.event.inputs.api }}" | jq -r '.list.objects[].uuid')
+        for UUID in $PROJECT_UUIDS; do
+            if [ -z "$UUID" ]; then
+                echo "No UUID found, skipping."
+                continue
+            fi
+        
+            echo "Updating project with UUID $UUID"
+            ./endorctl recommend dependency-upgrades --enable-github-action-token=true -n "${{ github.event.inputs.tenant_name }}" --api="${{ github.event.inputs.api }}" --security-only --use-cia --persist --project-uuid="$UUID"
+        done
+

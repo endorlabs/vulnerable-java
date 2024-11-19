@@ -1,0 +1,55 @@
+kind: AutomatedScanParameters
+spec:
+  languages:
+    - java
+    - python
+  additional_environment_variables:
+    - ENDOR_LOG_VERBOSE=false
+    - SOMETHING
+    - SOMETHING=yes
+    - ENDOR_ENABLE
+    - ENDOR_HEALTH_PORT=20
+    - ENDOR_LOG_LEVEL=info---
+---
+kind: Invalid
+spec:
+  dumb_languages:
+    - java
+    - python
+---
+kind: ToolchainProfile
+spec:
+  os:
+    darwin:
+      arch:
+        arm64:
+          golang_tool_chain:
+            version:
+              name: "11"
+              urls:
+                - "https://builds.openlogic.com/downloadJDK/openlogic---openjdk/11.0.23+9/openlogic-openjdk-11.0.23+9-linux-x64.tar.gz"
+              relative_tool_chain_path: "openlogic-openjdk-11.0.23+9-linux-x64"
+              sha256_sum: "694d0550be4233c53578e42e0b3e1f5473128a440c799dcc05656d5e92907f72"
+---
+kind: RemediationParameters
+spec:
+  automated_pr_parameters:
+    max_open_prs: 5
+    language_parameters:
+      go:
+        reviewers:
+          - testbasky
+          - codebasky
+        assignees:
+          - testbasky
+        labels:
+          - endorlabs
+      java:
+        reviewers:
+          - grace
+          - henry
+        assignees:
+          - ivy
+        labels:
+          - java
+          - automated-pr
