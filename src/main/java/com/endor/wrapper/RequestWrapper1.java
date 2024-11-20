@@ -1,7 +1,7 @@
 package com.endor.wrapper;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletRequestWrapper;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletRequestWrapper;
 
 public class RequestWrapper1 extends ServletRequestWrapper
 {

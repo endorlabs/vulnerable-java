@@ -6,7 +6,7 @@
     <parent>
 		  <groupId>org.springframework.boot</groupId>
 		  <artifactId>spring-boot-starter-parent</artifactId>
-		  <version>3.3.5</version>
+		  <version>3.1.5</version>
 		  <relativePath/> <!-- lookup parent from repository -->
 	</parent>
     <groupId>com.endor.webapp</groupId>
@@ -24,11 +24,11 @@
     </properties>
 
     <dependencies>
-        <dependency>
+        <!-- <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-text</artifactId>
@@ -47,6 +47,12 @@
             <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
             <version>0.9.5.2</version>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.servlet</groupId>
+          <artifactId>jakarta.servlet-api</artifactId>
+          <version>5.0.0</version>
+          <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.jboss.weld</groupId>
@@ -174,14 +180,14 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.endor.AppServlet</mainClass>
+                            <mainClass>com.endor.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
 
             <!-- Maven Assembly Plugin -->
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.1.1</version>
@@ -199,7 +205,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
             <plugin>
 				      <groupId>org.springframework.boot</groupId>
 				      <artifactId>spring-boot-maven-plugin</artifactId>

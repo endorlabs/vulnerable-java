@@ -1,193 +1,118 @@
 package com.endor;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.*;
 import java.net.URL;
-
-// import org.springframework.mock.web.MockHttpServletRequest;
-
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
-// create a diff
+@WebServlet(name = "AppServlet", urlPatterns = "/AppServlet")
+public class AppServlet extends HttpServlet {
 
-@javax.servlet.annotation.WebServlet(name = "AppServlet", urlPatterns = "/AppServlet")
-public class AppServlet extends javax.servlet.http.HttpServlet {
-    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         doGet(request, response);
     }
 
-    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-        //response.getWriter().println("Hello world");
-        PrintWriter out = null;
-        try {
-            out = response.getWriter();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        HtmlUtil.printHtmlHeader(response);
-        HtmlUtil.startBody(response);
-        HtmlUtil.printMenu(response);
-        HtmlUtil.printCurrentTitle("SSRF", response);
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        PrintWriter out = response.getWriter();
+        response.setContentType("text/html");
 
-        String form = "<form action=\"ssrf\">" +
-                "URL: <input type=\"text\" name=\"ssrf\" id=\"ssrf\"> -- (If ssrf=file then inputs will be parsed from the file /opt/ssrfinput.txt)<br><br>" +
+        // Print HTML Form
+        out.println("<html><head><title>SSRF Test</title></head><body>");
+        out.println("<h1>SSRF Testing Application</h1>");
+        out.println("<form action=\"/AppServlet\" method=\"get\">" +
+                "URL: <input type=\"text\" name=\"ssrf\" id=\"ssrf\"> -- (If ssrf=file, inputs will be parsed from the file /opt/ssrfinput.txt)<br><br>" +
                 "Https URL: <input type=\"text\" name=\"httpsssrf\" id=\"httpsssrf\"><br><br>" +
-                "<input type=\"submit\" value=\"Submit\">" + "</form>";
-        out.println(form);
+                "<input type=\"submit\" value=\"Submit\">" +
+                "</form>");
 
-
-        String loopback =  request.getParameter("isloopback");
+        // Get parameters from the form
         String ssrfUrl = request.getParameter("ssrf");
-        String httpsssrfUrl = request.getParameter("httpsssrf");
-        
-        System.out.printf("loopback : %s\n",loopback);
-        System.out.printf("ssrfUrl : %s\n",ssrfUrl);
-        System.out.printf("httpsssrfUrl : %s\n",httpsssrfUrl);
-        
-        if (loopback == null && ssrfUrl.equalsIgnoreCase("file")) {
-        	BufferedReader reader = null;
-        	try {
-        			reader = new BufferedReader(new FileReader("/opt/ssrfinput.txt"));
-        			System.out.println("ssrfinput.txt file opened successfully");
-        		}
-        	catch (IOException e) {
-        					System.out.println("Failed to open Input file");
-        					e.printStackTrace();
-        			}
-        	        try {
-        			    	String line = reader.readLine();
-        			    	while (null != line) {
-        			    		System.out.println("SSRF being called with :" + line);
-        			    		UseUrlOpenConnection(request, response, line);
-        			    		line = reader.readLine();
-        			    		Thread.sleep(2000);
-        			    	}
-        			    	reader.close();
-        	        	}
-        			   catch (Exception ex){
-        				   ex.getStackTrace();
-        			   }        	
-        } else if(loopback == null && ssrfUrl !=null && ssrfUrl.length() > 0) {
-            UseUrlOpenConnection(request, response, ssrfUrl);
-//            String countStr =  request.getParameter("loop");
-//            int count =  Integer.parseInt(countStr);
-//            for (int i =0; i< count;i++) {
-//                restCall(request, response, i);
-//            }
-        } else if (loopback == null && 0 == httpsssrfUrl.toUpperCase().indexOf("HTTPS://")) {
-        	System.out.println("Inside https://, calling UseUrlOpenConnectionhttps()");
-        	UseUrlOpenConnectionhttps(request, response, httpsssrfUrl);
-        	
-        }
-        
-        System.out.println("Executed URLOpen");
+        String httpsSsrfUrl = request.getParameter("httpsssrf");
 
+        if (ssrfUrl != null && ssrfUrl.equalsIgnoreCase("file")) {
+            processFile(request, response);
+        } else if (ssrfUrl != null && !ssrfUrl.isEmpty()) {
+            useUrlOpenConnection(request, response, ssrfUrl);
+        } else if (httpsSsrfUrl != null && httpsSsrfUrl.toLowerCase().startsWith("https://")) {
+            useUrlOpenConnectionHttps(request, response, httpsSsrfUrl);
+        }
+
+        out.println("</body></html>");
     }
 
-    public void UseUrlOpenConnection(javax.servlet.http.HttpServletRequest request,
-                                     javax.servlet.http.HttpServletResponse response, String ssrfURL) throws javax.servlet.ServletException, IOException {
-        try {
-            response.getWriter().println("Inside Url.openStream");
-            String url  = "https://www.oracle.com/";
-            if (ssrfURL != null && ssrfURL.length() > 0) {
-                url = ssrfURL;
+    private void processFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        PrintWriter out = response.getWriter();
+        File file = new File("/opt/ssrfinput.txt");
+
+        if (!file.exists()) {
+            out.println("<p>Error: File '/opt/ssrfinput.txt' not found!</p>");
+            return;
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                out.println("<p>Processing URL: " + line + "</p>");
+                useUrlOpenConnection(request, response, line);
+                Thread.sleep(2000); // Simulate delay
             }
-            URL oracle = new URL(url);
-
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(oracle.openStream()));
-
-            String inputLine;
-            while ((inputLine = in.readLine()) != null){
-                System.out.println(inputLine);
-                response.getWriter().print(inputLine);}
-            in.close();
         } catch (Exception e) {
-            response.getWriter().println("Exception!!");
-            response.getWriter().print(e.getMessage());
-
+            out.println("<p>Error while reading the file: " + e.getMessage() + "</p>");
         }
     }
 
-    public void UseUrlOpenConnectionhttps(javax.servlet.http.HttpServletRequest request,
-            javax.servlet.http.HttpServletResponse response, String ssrfURL) throws javax.servlet.ServletException, IOException {
-    	
-    	String hostname = "www.verisign.com";
-        
+    private void useUrlOpenConnection(HttpServletRequest request, HttpServletResponse response, String url) throws IOException {
+        PrintWriter out = response.getWriter();
+        out.println("<h3>Using URL.openConnection for: " + url + "</h3>");
 
-        String hostname2 = "time.nist.gov";
-        
-        String UrlToOpen = ssrfURL.replaceFirst("HTTPS://", "");
-        UrlToOpen = UrlToOpen.replaceFirst("https://", "");
-        
         try {
-        	System.out.printf("Opening SSL socket for host : %s\n", UrlToOpen);
-            SSLSocketFactory factory =
-                    (SSLSocketFactory)SSLSocketFactory.getDefault();
-            SSLSocket socket =
-                    (SSLSocket)factory.createSocket(UrlToOpen, 443);
-
-            /*
-             * send http request
-       
-             */
-            socket.startHandshake();
-
-            PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())));
-
-            out.println("GET / HTTP/1.0");
-            out.println();
-            out.flush();
-
-            /*
-             * Make sure there were no surprises
-             */
-            if (out.checkError())
-                System.out.println(
-                        "SSLSocketClient:  java.io.PrintWriter error");
-
-            /* read response */
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(
-                            socket.getInputStream()));
-
-            String inputLine;
-            while ((inputLine = in.readLine()) != null) {
-                System.out.println(inputLine);
-                response.getWriter().print(inputLine);
+            URL targetUrl = new URL(url);
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(targetUrl.openStream()))) {
+                String inputLine;
+                while ((inputLine = in.readLine()) != null) {
+                    out.println("<p>" + inputLine + "</p>");
+                }
             }
-            in.close();
-            out.close();
-            socket.close();
-
         } catch (Exception e) {
-            e.printStackTrace();
+            out.println("<p>Error during URL.openConnection: " + e.getMessage() + "</p>");
         }
-
     }
-        public static void main(String... args) {
-        // System.out.println("Welocome to the java app");
-        AppServlet servlet = new AppServlet();
 
-        // try {
-        //     // Mock request and response
-        //     MockHttpServletRequest request = new MockHttpServletRequest();
-        //     MockHttpServletResponse response = new MockHttpServletResponse();
+    private void useUrlOpenConnectionHttps(HttpServletRequest request, HttpServletResponse response, String url) throws IOException {
+        PrintWriter out = response.getWriter();
+        out.println("<h3>Using HTTPS Connection for: " + url + "</h3>");
 
-        //     // Call the servlet
-        //     servlet.doGet(request, response);
+        String hostname = url.replaceFirst("https://", "");
 
-        //     // Output the response content
-        //     System.out.println("Response content:");
-        //     System.out.println(response.getContentAsString());
-        // } catch (Exception e) {
-        //     e.printStackTrace();
-        // }
-    } 
+        try {
+            SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+            try (SSLSocket socket = (SSLSocket) factory.createSocket(hostname, 443)) {
+                socket.startHandshake();
+                PrintWriter socketOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())));
+                socketOut.println("GET / HTTP/1.0");
+                socketOut.println();
+                socketOut.flush();
+
+                if (socketOut.checkError()) {
+                    out.println("<p>Error during HTTPS socket communication.</p>");
+                }
+
+                try (BufferedReader socketIn = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+                    String inputLine;
+                    while ((inputLine = socketIn.readLine()) != null) {
+                        out.println("<p>" + inputLine + "</p>");
+                    }
+                }
+            }
+        } catch (Exception e) {
+            out.println("<p>Error during HTTPS Connection: " + e.getMessage() + "</p>");
+        }
+    }
 }
