@@ -1,0 +1,21 @@
+on: [push, workflow_dispatch]
+name: build
+jobs:
+  use-endorctl:
+    name: Usage of Endorctl
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      packages: write
+      contents: read
+    steps:
+      - name: Setup with Endor Labs
+        # uses: endorlabs/github-action@1.1.4
+        uses: endorlabs/github-action@v1.1.4
+        with:
+          namespace: "nate-learn"
+          enable_github_action_token: true
+
+      - name: Use Endorctl
+        run: |
+          endorctl api list -r Project

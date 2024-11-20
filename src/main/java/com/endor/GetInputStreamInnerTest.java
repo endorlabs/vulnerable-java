@@ -1,12 +1,12 @@
 package com.endor;
 
 
-import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletInputStream;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
@@ -123,7 +123,7 @@ public class GetInputStreamInnerTest extends HttpServlet {
         try {
             StringBuffer sbuf = new StringBuffer();
             String query = new String();
-            query = "select FIRST, LAST from CUSTOMERS WHERE LAST=\'" + name + "\' AND PASSWORD= \'" + pass + "\'";
+            query = "select FIRST, LAST from CUSTOMERS WHERE LAST=name AND PASSWORD=pass";
             System.out.println("Multileg PreparedStatementQUERY:" + query);
             PreparedStatement stmt = conn.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
@@ -170,8 +170,8 @@ public class GetInputStreamInnerTest extends HttpServlet {
 
             query = "{call verifyuser(?,?,?)}";
             c = conn.prepareCall(query);
-            c.setString(1, name);
-            c.setString(2, pass);
+            c.setString(1, "test");
+            c.setString(2, "test");
             c.registerOutParameter(3, Types.INTEGER);
             System.out.println("Multihub DB stored Proc being called");
             System.out.println(query);

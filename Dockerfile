@@ -18,7 +18,6 @@ WORKDIR /app
 
 # Copy the built artifact from the build stage
 COPY --from=build /app/target/endor-java-webapp-demo.jar .
-COPY --from=build /app/target/endor-java-webapp-demo-jar-with-dependencies.jar .
 # Expose any necessary ports
 EXPOSE 443
 

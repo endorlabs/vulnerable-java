@@ -1,11 +1,11 @@
 package com.endor;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.InvalidParameterException;
@@ -642,7 +642,7 @@ public class BooksServlet extends HttpServlet {
             StringBuffer sbuf = new StringBuffer();
             String query = new String();
             
-            query = "select FIRST, LAST from CUSTOMERS WHERE LAST=\'" + name + "\' AND PASSWORD= \'" + pass + "\'";
+            query = "select FIRST, LAST from CUSTOMERS WHERE LAST=name AND PASSWORD=password";
             
             
             if (methodName.equalsIgnoreCase("executeQuerySQL")) {
@@ -1543,7 +1543,7 @@ public class BooksServlet extends HttpServlet {
         //PreparedStatement stmt = null;
         CallableStatement c = null;
         try {
-            String Proc_query = "{CALL sql_login('" + name +"',"+ pass + "')}";
+            String Proc_query = "{CALL sql_login('name and pass')}";
             System.out.println("Created Procedure query string : " + Proc_query);
             c = conn.prepareCall(Proc_query);
         } catch (SQLException e) {
