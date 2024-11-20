@@ -9,6 +9,8 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.URL;
 
+// import org.springframework.mock.web.MockHttpServletRequest;
+
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
@@ -170,6 +172,22 @@ public class AppServlet extends javax.servlet.http.HttpServlet {
 
     }
         public static void main(String... args) {
-        System.out.println("Welocome to the java app");
+        // System.out.println("Welocome to the java app");
+        AppServlet servlet = new AppServlet();
+
+        // try {
+        //     // Mock request and response
+        //     MockHttpServletRequest request = new MockHttpServletRequest();
+        //     MockHttpServletResponse response = new MockHttpServletResponse();
+
+        //     // Call the servlet
+        //     servlet.doGet(request, response);
+
+        //     // Output the response content
+        //     System.out.println("Response content:");
+        //     System.out.println(response.getContentAsString());
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        // }
     } 
 }
