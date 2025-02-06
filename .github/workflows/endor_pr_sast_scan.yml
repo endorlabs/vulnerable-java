@@ -21,6 +21,11 @@ jobs:
       with:
         distribution: 'microsoft'
         java-version: '17'
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+        cache: 'pip' # caching pip dependencies
+    - run: pip install semgrep==1.99.0
     - name: Endor Labs Scan Pull Request
       uses: endorlabs/github-action@v1.1.7
       with:
