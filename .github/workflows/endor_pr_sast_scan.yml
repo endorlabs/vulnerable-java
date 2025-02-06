@@ -1,4 +1,4 @@
-name: Endor Labs PR Check for Vulns and Secrets
+name: Endor Labs PR SAST Check
 on:
   pull_request:
     branches: [ new_main]
@@ -21,11 +21,13 @@ jobs:
       with:
         distribution: 'microsoft'
         java-version: '17'
-    - uses: actions/setup-python@v5
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.13'
-        cache: 'pip' # caching pip dependencies
-    - run: pip install semgrep==1.99.0
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install semgrep==1.99.0
     - name: Endor Labs Scan Pull Request
       uses: endorlabs/github-action@v1.1.7
       with:
