@@ -31,8 +31,8 @@ jobs:
         pr: false
         log_verbose: true
         log_level: debug
-        endorctl_version: 'v1.7.38'
-        endorctl_checksum: "062c277e883bb5749db9b6596299ec2943fe15ac28a2bef1c95402497e425cb0"
+        endorctl_version: v1.7.38
+        endorctl_checksum: 062c277e883bb5749db9b6596299ec2943fe15ac28a2bef1c95402497e425cb0
         scan_summary_output_type: 'table'
         sarif_file: 'findings.sarif'
         additional_args: '--bypass-host-check'
